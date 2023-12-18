@@ -1,23 +1,80 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+// 引入组件
+import login from 'views/login'
+
+import main from 'views/main'
+
+import home from 'views/home'
+
+import activity from 'views/activity'
+
+import column from 'views/column'
+import science from 'views/science'
+import splendidmonent from 'views/splendidmonent'
+
+import user from 'views/user'
+
+
+
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: '/login',
+    name: 'login',
+    component: login,
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/',
+    redirect: '/main'
+  },
+  {
+    path: '/main',
+    name: 'main',
+    component: main,
+    children: [
+      {
+        path: '/',
+        redirect: '/home' // 默认显示主页面
+      },
+      {
+        path: '/home',
+        component: home,
+        children: [],
+      },
+      {
+        path: '/activity',
+        component: activity,
+        children: [],
+      },
+      {
+        path: '/column',
+        component: column,
+        children: [
+          {
+            path: '/',
+            redirect:'/science'
+          },
+          {
+            path:'/science',
+            component:science
+          },
+          {
+            path:'/splendidmonent',
+            component:splendidmonent,
+          }
+        ],
+      },
+      {
+        path: '/user',
+        component: user,
+        children: [],
+      }
+    ]
   }
 ]
 
 const router = createRouter({
+  // 路由的模式
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
