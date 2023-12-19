@@ -4,7 +4,7 @@
 /* :root 伪类 获取根元素html */
 :root{
     /* css定义变量，其他地方可以使用这些变量 */
-    --color-text:#666;
+    --color-text:#1c1b1b;
     --color-high-text:#ff5777;
     --color-tint:#ff8198;       /* 设置导航等地方的背景颜色 */
     --color-background:#fff;

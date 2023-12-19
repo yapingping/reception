@@ -19,13 +19,12 @@ import user from 'views/user'
 
 const routes = [
   {
-    path: '/login',
-    name: 'login',
-    component: login,
+    path: '/',
+    redirect: '/login'
   },
   {
-    path: '/',
-    redirect: '/main'
+    path: '/login',
+    component: login,
   },
   {
     path: '/main',
@@ -33,7 +32,7 @@ const routes = [
     component: main,
     children: [
       {
-        path: '/',
+        path: '',
         redirect: '/home' // 默认显示主页面
       },
       {
@@ -51,7 +50,7 @@ const routes = [
         component: column,
         children: [
           {
-            path: '/',
+            path: '',
             redirect:'/science'
           },
           {

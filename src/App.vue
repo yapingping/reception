@@ -1,17 +1,15 @@
 <template>
     <div id="app">
-        <main-header></main-header>
         <router-link to="/main"></router-link>
+        <!-- 路由占位符 -->
         <router-view></router-view>
     </div>
 </template>
 
 <script>
-import mainHeader from 'components/common/mainHeader'
 export default {
     name: 'app',
     components: {
-        mainHeader
     }
 }
 </script>

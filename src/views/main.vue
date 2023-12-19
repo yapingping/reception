@@ -1,10 +1,13 @@
 <template>
     <div id="main">
+        <div>
+            <main-header></main-header>
+        </div>
         <div class="nav">
-            <router-link to="/main/home" class="item">首页</router-link>
-            <router-link to="/main/activity" class="item">所有活动</router-link>
-            <router-link to="/main/column" class="item">精彩专栏</router-link>
-            <router-link to="/main/user" class="item">个人中心</router-link>
+            <router-link to="/home" class="item">首页</router-link>
+            <router-link to="/activity" class="item">所有活动</router-link>
+            <router-link to="/column" class="item">精彩专栏</router-link>
+            <router-link to="/user" class="item">个人中心</router-link>
         </div>
         <div class="detail">
             <router-view></router-view>
@@ -14,11 +17,12 @@
 
 <script>
 // import {getMainData} from 'network/home.js'
+import mainHeader from 'components/common/mainHeader'
 export default {
     name: 'main',
-    path:'/main/home',
+    path: '/main/home',
     components: {
-
+        mainHeader
     },
     // 生命周期函数，组件被创建即发送网络请求
     // created(){
@@ -47,12 +51,13 @@ export default {
     padding: 15px 30px;
     font-size: 20px;
 }
-.detail{
-    width:100%;
-    height:500px;
+
+.detail {
+    width: 100%;
+    height: 500px;
     background-color: pink;
-    margin:0 auto;
+    margin: 0 auto;
     /* 设置渐变 */
-    background-image: linear-gradient(rgb(244, 241, 241),white);
+    background-image: linear-gradient(rgb(244, 241, 241), white);
 }
 </style>
